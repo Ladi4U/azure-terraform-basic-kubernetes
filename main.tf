@@ -9,7 +9,7 @@ resource "azurerm_resource_group" "mcit" {
 }
 
 resource "azurerm_kubernetes_cluster" "myk8s" {
-  each_key            = { for cluster in local.cluster_name ; cluster => cluster }
+  each_key            = { for cluster in local.cluster_name : cluster => cluster }
   name                = "k8s-${var.convention}-${each.key}"
   location            = azurerm_resource_group.mcit.location
   resource_group_name = azurerm_resource_group.mcit.name
