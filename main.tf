@@ -1,10 +1,16 @@
+locals {
+  cluster_names = ["Pacific","Atlantic","Indian","Artic"]
+}
+
+
 resource "azurerm_resource_group" "mcit" {
   name     = "rg-${var.convention}"
   location = var.location
 }
 
 resource "azurerm_kubernetes_cluster" "myk8s" {
-  name                = "k8s-${var.convention}"
+  each_key            = { for cluster in local.cluster_name ; cluster => cluster }
+  name                = "k8s-${var.convention}-${each.key}"
   location            = azurerm_resource_group.mcit.location
   resource_group_name = azurerm_resource_group.mcit.name
   dns_prefix          = "${var.prefix}-k8s"
