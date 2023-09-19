@@ -1,5 +1,5 @@
 output "id" {
-  value = azurerm_kubernetes_cluster.myk8s[k8s-k9s-mcti-lab-central-canada-Pacific].id
+  value = azurerm_kubernetes_cluster.myk8s["Pacific"].id
 }
 
 output "kube_config" {
