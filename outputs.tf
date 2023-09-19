@@ -24,5 +24,7 @@ output "cluster_ca_certificate" {
 
 output "host" {
   sensitive = true
-  value = azurerm_kubernetes_cluster.myk8s["*"].kube_config.0.host
+  value = [
+    for cluster in local.cluster_names: azurerm_kubernetes_cluster.myk8s["cluster"].kube_config.0.host
+  ]
 }
