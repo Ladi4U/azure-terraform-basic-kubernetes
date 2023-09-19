@@ -1,5 +1,5 @@
 output "id" {
-  value = azurerm_kubernetes_cluster.myk8s[each.key].id
+  value = azurerm_kubernetes_cluster.myk8s[*].id
 }
 
 output "kube_config" {
