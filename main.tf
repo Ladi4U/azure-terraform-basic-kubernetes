@@ -1,12 +1,12 @@
-resource "azurerm_resource_group" "example" {
-  name     = "${var.prefix}-k8s-resources"
+resource "azurerm_resource_group" "mcit" {
+  name     = "rg-${convention}"
   location = var.location
 }
 
-resource "azurerm_kubernetes_cluster" "example" {
-  name                = "${var.prefix}-k8s"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+resource "azurerm_kubernetes_cluster" "myk8s" {
+  name                = "k8s-${convention}"
+  location            = azurerm_resource_group.myk8s.location
+  resource_group_name = azurerm_resource_group.myk8s.name
   dns_prefix          = "${var.prefix}-k8s"
 
   default_node_pool {

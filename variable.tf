@@ -60,3 +60,8 @@ variable "tags" {
    }
 }
 
+variable "prefix" {
+  type      = string
+  default   = "mcit"
+}
+
