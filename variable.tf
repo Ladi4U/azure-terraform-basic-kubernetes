@@ -11,39 +11,15 @@ variable "tenant_id"{
   type=string
 }
 
-variable "owner"{
-  type        = string
-  description = "Owner of the application, workload, or service"
-  default     = "mcti"
-}
-
-variable "env"{
-  type        = string
-  description = "Deployment environment of the application, workload, or service"
-  default     = "lab"
-}
-
-variable "region"{
-  type        = string
-  description = "Azure region where the resource is deployed"
-  default     = "central-canada"
-}
-
-variable "name" {
-  type        = string
-  description = "Name of the application, workload, or service"
-  default     = "k9s"
-}
-
 variable "convention" {
   type        = string
   description = "Define naming convention"
-  default     = "${var.name}-${var.owner}-${var.env}-${var.region}"
+  default     = "k9s-mcti-lab-central-canada"
 }
 variable "resource_group_name" {
    description  = "Name of the resource group in which resources will be created"
    type         = string
-   default      = "rg-${var.convention}"
+   default      = "rg"
 }
 
 variable "location" {
