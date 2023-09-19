@@ -1,10 +1,10 @@
 resource "azurerm_resource_group" "mcit" {
-  name     = "rg-${convention}"
+  name     = "rg-${var.convention}"
   location = var.location
 }
 
 resource "azurerm_kubernetes_cluster" "myk8s" {
-  name                = "k8s-${convention}"
+  name                = "k8s-${var.convention}"
   location            = azurerm_resource_group.myk8s.location
   resource_group_name = azurerm_resource_group.myk8s.name
   dns_prefix          = "${var.prefix}-k8s"
