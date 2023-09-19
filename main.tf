@@ -5,8 +5,8 @@ resource "azurerm_resource_group" "mcit" {
 
 resource "azurerm_kubernetes_cluster" "myk8s" {
   name                = "k8s-${var.convention}"
-  location            = azurerm_resource_group.myk8s.location
-  resource_group_name = azurerm_resource_group.myk8s.name
+  location            = azurerm_resource_group.mcit.location
+  resource_group_name = azurerm_resource_group.mcit.name
   dns_prefix          = "${var.prefix}-k8s"
 
   default_node_pool {
