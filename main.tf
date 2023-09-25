@@ -1,5 +1,5 @@
 locals {
-  cluster_names = ["Pacific","Atlantic","Indian","Artic"]
+  cluster_names = ["ladi","Douglas","Emmanuel","Paul","Sarge","Jade","Olarnewaju" ]
 }
 
 
